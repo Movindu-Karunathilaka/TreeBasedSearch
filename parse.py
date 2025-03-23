@@ -29,15 +29,14 @@ def parse_file(filename):
         
         if section == "nodes":
             parts = line.split(": ")
-            node_id = int(parts[0])
             coord = tuple(map(int, parts[1][1:-1].split(',')))
             nodes.append(coord)
         
         elif section == "edges":
             parts = line.split("): ")
-            edge_nodes = tuple(map(int, parts[0][1:].split(',')))
+            edgeNodes = tuple(map(int, parts[0][1:].split(',')))
             weight = int(parts[1])
-            edgesRaw.append((edge_nodes[0], edge_nodes[1], weight))
+            edgesRaw.append((edgeNodes[0], edgeNodes[1], weight))
         
         elif section == "origin":
             origin = int(line)
